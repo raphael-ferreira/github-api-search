@@ -24,6 +24,8 @@
 	"plugins": ["react", "prettier"],
 	"rules": {
 		"prettier/prettier": "error",
+		"react/destructuring-assignment": [0, "always"],
+		"react/prop-types": [0],
 		"react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
 		"react/state-in-constructor": "off",
 		"react/jsx-indent": ["off", 2],
