@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 
-import icon from '../../assets/icons/search.svg';
-
 export const InputButton = styled.button`
+	min-width: 100px;
+
 	position: relative;
 	background: #8b32dc;
 
 	margin: 5px;
-	width: 130px;
 
 	border: none;
 	border-radius: 5px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 
 	-webkit-transition-duration: 0.4s; /* Safari */
 	transition-duration: 0.4s;
@@ -18,18 +21,17 @@ export const InputButton = styled.button`
 	overflow: hidden;
 	cursor: pointer;
 
-	padding: 10px;
-	padding-left: 30px;
-
 	color: #fff;
-	background-image: url(${icon});
-	background-repeat: no-repeat;
-	background-size: 15%;
-	background-position: 10px 50%;
+	padding: 10px;
 
 	font-size: 16px;
 
 	cursor: pointer;
+
+	span {
+		margin-right: 5px;
+		margin-left: 5px;
+	}
 
 	:focus {
 		outline: none;

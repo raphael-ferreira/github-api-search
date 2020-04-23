@@ -1,84 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import api from 'axios';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-import { Textbox, Button } from '../../components';
+import { FaHammer, FaArrowRight } from 'react-icons/fa';
 
-import {
-	Container,
-	ContentContainer,
-	SearchContainer,
-	ResultContainer,
-	List,
-	Item,
-} from './styles';
+import { Container } from './styles';
+
+import { Button } from '../../components';
 
 export default function Home() {
-	const [searchText, setSearchText] = useState('');
-	const [users, setUsers] = useState([]);
+	const history = useHistory();
 
-	const getUsers = () => {
-		api.get(`https://api.github.com/users`).then((res) => {
-			setUsers(res.data);
-		});
-	};
-
-	const getUsersByLogin = () => {
-		api
-			.get(`https://api.github.com/search/users?q=${searchText}&sort=followers`)
-			.then((res) => {
-				setUsers(res.data.items);
-			});
-	};
-
-	useEffect(() => {
-		getUsers();
-	}, []);
-
-	const handleSearchTextChange = (e) => {
-		setSearchText(e.target.value);
-	};
-
-	const handleSearchClick = () => {
-		getUsersByLogin();
-	};
-
-	const handleKeyPress = (event) => {
-		if (event.key === 'Enter' && !!searchText) {
-			handleSearchClick();
-		} else {
-			getUsers();
-		}
+	const handleButtonClick = () => {
+		history.push('/users');
 	};
 
 	return (
 		<Container>
-			<h1>Busca de usuários - GitHub</h1>
-			<ContentContainer>
-				<SearchContainer>
-					<Textbox
-						placeholder="Buscar usuário..."
-						value={searchText}
-						onChange={handleSearchTextChange}
-						onKeyPress={handleKeyPress}
-					/>
-					<Button onClick={handleSearchClick}>Pesquisar</Button>
-				</SearchContainer>
+			<h1>Página Inicial</h1>
 
-				<ResultContainer>
-					<List>
-						{users.map((user) => {
-							return (
-								<Item key={user.id}>
-									<img src={user.avatar_url} alt={user.login} />
-									<span>{user.login}</span>
-								</Item>
-							);
-						})}
-					</List>
-				</ResultContainer>
+			<h2>
+				<FaHammer /> Em construção...
+			</h2>
 
-				<p>Desenvolvido por Raphael Ferreira - Abril 2020</p>
-			</ContentContainer>
+			<Button onClick={handleButtonClick}>
+				<span>Ir para usuários</span>
+				<FaArrowRight />
+			</Button>
 		</Container>
 	);
 }

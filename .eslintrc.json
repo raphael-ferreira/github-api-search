@@ -23,6 +23,8 @@
 	},
 	"plugins": ["react", "prettier"],
 	"rules": {
+		"no-undef": "off",
+		"no-console": "off",
 		"prettier/prettier": "error",
 		"react/destructuring-assignment": [0, "always"],
 		"react/prop-types": [0],

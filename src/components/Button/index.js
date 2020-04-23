@@ -5,7 +5,7 @@ import { InputButton } from './styles';
 export default function Button(props) {
 	return (
 		<InputButton type="button" onClick={props.onClick}>
-			Pesquisar
+			{props.children}
 		</InputButton>
 	);
 }
