@@ -37,6 +37,10 @@ export const InputButton = styled.button`
 		outline: none;
 	}
 
+	:hover {
+		background: #ff00ff;
+	}
+
 	:after {
 		content: '';
 		background: #8f39dd;

@@ -8,6 +8,9 @@ export const List = styled.ul`
 	padding: 0;
 	overflow: hidden;
 	background-color: #8f39dd;
+
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
 `;
 
 export const ListItem = styled.li`
@@ -21,7 +24,10 @@ export const Link = styled.a`
 	padding: 14px 16px;
 	text-decoration: none;
 
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+
 	:hover {
-		background-color: #111;
+		background-color: #ff00ff;
 	}
 `;
